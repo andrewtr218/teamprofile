@@ -10,8 +10,14 @@ const manager = new Manager(0);
 const engineer = new Engineer("");
 const intern = new Intern("");
 
-function makeEmmployee(){
-    employee = new Employee("Clark",1,"Employ","clark@employ.com")
-    console.log(employee);
-}
-makeEmmployee();
+const i = 0
+
+
+inquirer
+    .prompt([{
+        type: "list",
+        name: "Job Title",
+        choice: ["Manager", "Engineer", "Intern"]
+        }
+    ])
+    .then(answers => console.log(answers))
