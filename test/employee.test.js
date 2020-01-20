@@ -1,6 +1,6 @@
 const Employee = require("../lib/classes/employee")
 
-dscribe("Employee class", () => {
+describe("Employee class", () => {
     describe("getName method", () => {
         it("returns the name on a card", () => {
             const test = new Employee ("Cool", 1, "Employ", "cool@gmail.com")  
@@ -8,16 +8,21 @@ dscribe("Employee class", () => {
         })
     })
     describe("getID method", () => {
-        it("returns the id on a card")
+        it("returns the id on a card", () => {
         const test = new Employee ("Cool", 1, "Employ", "cool@gmail.com")  
             expect(test.getID()).toBe(1);
+        })
     })
     describe("getEmail method", () => {
+        it("returns the Email on a card", () => {
             const test = new Employee ("Cool", 1, "Employ", "cool@gmail.com")  
             expect(test.getEmail()).toBe("cool@gmail.com");
+        })
     })
-    describe("getEmail method", () => {
+    describe("getRole method", () => {
+        it("return the role on the card", () => {
             const test = new Employee ("Cool", 1, "Employ", "cool@gmail.com")  
-            expect(test.getRoll()).toBe("Employee");
+            expect(test.getRole()).toBe("Employee");
+        })
     })
 });

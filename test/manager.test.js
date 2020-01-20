@@ -1,6 +1,6 @@
 const Manager = require("../lib/classes/manager")
 
-dscribe("Manager class", () => {
+describe("Manager class", () => {
     describe("getOfficeNumber", () => {
         it("returns the Office Number on a card", () => {
             const test = new Manager (24)  
