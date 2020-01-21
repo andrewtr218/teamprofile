@@ -5,12 +5,8 @@ const Intern = require("./lib/classes/intern.js")
 const jest = require("jest");
 const inquirer = require("inquirer");
 
-const employee = new Employee("",0,'');
-const manager = new Manager(0);
-const engineer = new Engineer("");
-const intern = new Intern("");
 
-const i = 0
+const i = 0;
 
 
 inquirer.prompt([{
