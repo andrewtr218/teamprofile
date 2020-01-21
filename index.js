@@ -32,17 +32,20 @@ inquirer.prompt([{
 ])
     .then(answers => {
         var employee = new Employee (answers["employee name"], answers["id"], answers["Job Title"], answers["email"]);
-        console.log(employee)
+        // console.log(employee);
         if(answers["Job Title"]==="Manager"){
-            constManager(employee);
+            const final = constManager(employee);
+                return final
         }else if(answers["Job Title"]==="Engineer"){
-            constEngineer(employee);
+            const final = constEngineer(employee);
+            return final
         }else if(answers["Job Title"]==="Intern"){
-            constIntern(employee);
+            const final = constIntern(employee);
+                return final
         }else{
             console.log("error")
         }
-    })
+    }).then(final=>{console.log(final)})
 
 function constManager(employee){
         inquirer.prompt([{
@@ -56,6 +59,7 @@ function constManager(employee){
             manager.id = employee.id;
             manager.title = "Manager"
             manager.email = employee.email;
+            console.log(manager);
             return manager;
         })
     }
@@ -72,6 +76,7 @@ function constEngineer(employee){
             engineer.title = "Engineer"
             engineer.email = employee.email;
             console.log(engineer);
+            return engineer;
         })
     }
 function constIntern(employee){
@@ -87,6 +92,7 @@ function constIntern(employee){
             intern.title = "Intern"
             intern.email = employee.email;
             console.log(intern);
+            return intern;
         })
     }
     // .prompt([{
