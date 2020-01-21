@@ -1,0 +1,110 @@
+const Employee = require("./lib/classes/employee.js");
+const Manager = require("./lib/classes/manager.js");
+const Engineer = require("./lib/classes/engineer.js");
+const Intern = require("./lib/classes/intern.js")
+const jest = require("jest");
+const inquirer = require("inquirer");
+
+const employee = new Employee("",0,'');
+const manager = new Manager(0);
+const engineer = new Engineer("");
+const intern = new Intern("");
+
+const i = 0
+
+
+inquirer.prompt([{
+        type: "input",
+        name: "employee name",
+        message: "What is the employees name?"
+    },
+    {
+        type: "input",
+        name: "id",
+        message: "What is the employees ID number?"
+    },
+    {
+        type: "list",
+        name: "Job Title",
+        choices: ["Manager", "Engineer", "Intern"]
+    },
+    {
+        type: "input",
+        name: "email",
+        message: "What is the employees email address?"
+    }
+])
+    .then(answers => {
+        var employee = new Employee (answers["employee name"], answers["id"], answers["Job Title"], answers["email"]);
+        console.log(employee)
+        if(answers["Job Title"]==="Manager"){
+            constManager(employee);
+        }else if(answers["Job Title"]==="Engineer"){
+            constEngineer(employee);
+        }else if(answers["Job Title"]==="Intern"){
+            constIntern(employee);
+        }else{
+            console.log("error")
+        }
+    })
+
+function constManager(employee){
+        inquirer.prompt([{
+            type: "input",
+            name: "Office Number",
+            message: "What is this managers's office number?"
+        }])
+        .then(answers => {
+            const manager = new Manager (answers["Office Number"]);
+            manager.name = employee.name;
+            manager.id = employee.id;
+            manager.title = "Manager"
+            manager.email = employee.email;
+            return manager;
+        })
+    }
+function constEngineer(employee){
+        inquirer.prompt([{
+            type: "input",
+            name: "GitHub",
+            message: "What is this engineer's GitHub Username?"
+        }])
+        .then(answers => {
+            const engineer = new Engineer (answers["GitHub"]);
+            engineer.name = employee.name;
+            engineer.id = employee.id;
+            engineer.title = "Engineer"
+            engineer.email = employee.email;
+            console.log(engineer);
+        })
+    }
+function constIntern(employee){
+        inquirer.prompt([{
+            type: "input",
+            name: "school",
+            message: "What is this interns school of origin?"
+        }])
+        .then(answers => {
+            const intern = new Intern (answers["school"]);
+            intern.name = employee.name;
+            intern.id = employee.id;
+            intern.title = "Intern"
+            intern.email = employee.email;
+            console.log(intern);
+        })
+    }
+    // .prompt([{
+    //     type: "list",
+    //     name: "Job Title",
+    //     choices: ["Manager", "Engineer", "Intern"]
+    //     }
+    // ])
+    // .then(answers => if(answers["Job Title"]==="Manager"){
+    //     inquirer
+    //     .prompt([{
+    //         type: "input",
+    //         name: "Office Number",
+    //         message: "What is your office number?"
+    //     }])
+    //     .then(answers => )
+    // })
